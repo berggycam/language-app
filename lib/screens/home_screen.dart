@@ -10,6 +10,12 @@ import '../widgets/gradient_button.dart';
 import 'flashcard_screen.dart';
 import 'progress_screen.dart';
 import 'vocabulary_screen.dart';
+import 'leaderboard_screen.dart';
+import 'profile_screen.dart';
+import 'search_screen.dart';
+import 'practice_screen.dart';
+import 'daily_goals_screen.dart';
+import 'review_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -118,28 +124,51 @@ class _HomeScreenState extends State<HomeScreen> {
                               .slideX(begin: -0.2),
                         ],
                       ),
-                      GlassCard(
-                        padding: const EdgeInsets.all(12),
-                        margin: EdgeInsets.zero,
-                        child: Row(
-                          children: [
-                            const Icon(Icons.local_fire_department,
-                                color: AppColors.accent, size: 24),
-                            const SizedBox(width: 4),
-                            Text(
-                              '$streak',
-                              style: GoogleFonts.poppins(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.textPrimary,
-                              ),
+                      Row(
+                        children: [
+                          GlassCard(
+                            padding: const EdgeInsets.all(12),
+                            margin: EdgeInsets.zero,
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => const LeaderboardScreen(),
+                                ),
+                              );
+                            },
+                            child: const Icon(
+                              Icons.emoji_events,
+                              color: AppColors.accent,
+                              size: 24,
                             ),
-                          ],
-                        ),
-                      )
-                          .animate()
-                          .fadeIn(duration: 400.ms, delay: 200.ms)
-                          .scale(begin: const Offset(0.8, 0.8)),
+                          )
+                              .animate()
+                              .fadeIn(duration: 400.ms, delay: 200.ms)
+                              .scale(begin: const Offset(0.8, 0.8)),
+                          const SizedBox(width: 8),
+                          GlassCard(
+                            padding: const EdgeInsets.all(12),
+                            margin: EdgeInsets.zero,
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => const ProfileScreen(),
+                                ),
+                              );
+                            },
+                            child: const Icon(
+                              Icons.person,
+                              color: AppColors.primary,
+                              size: 24,
+                            ),
+                          )
+                              .animate()
+                              .fadeIn(duration: 400.ms, delay: 300.ms)
+                              .scale(begin: const Offset(0.8, 0.8)),
+                        ],
+                      ),
                     ],
                   ),
                 ),
@@ -430,6 +459,150 @@ class _HomeScreenState extends State<HomeScreen> {
                             )
                                 .animate()
                                 .fadeIn(duration: 400.ms, delay: 900.ms)
+                                .slideX(begin: 0.1),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 12),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: GlassCard(
+                              padding: const EdgeInsets.all(16),
+                              margin: EdgeInsets.zero,
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => const SearchScreen(),
+                                  ),
+                                );
+                              },
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Icon(Icons.search,
+                                      color: AppColors.primary),
+                                  const SizedBox(width: 8),
+                                  Text(
+                                    'Search',
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColors.textPrimary,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
+                                .animate()
+                                .fadeIn(duration: 400.ms, delay: 1000.ms)
+                                .slideX(begin: -0.1),
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: GlassCard(
+                              padding: const EdgeInsets.all(16),
+                              margin: EdgeInsets.zero,
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => const PracticeScreen(),
+                                  ),
+                                );
+                              },
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Icon(Icons.quiz,
+                                      color: AppColors.accent),
+                                  const SizedBox(width: 8),
+                                  Text(
+                                    'Practice',
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColors.textPrimary,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
+                                .animate()
+                                .fadeIn(duration: 400.ms, delay: 1100.ms)
+                                .slideX(begin: 0.1),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 12),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: GlassCard(
+                              padding: const EdgeInsets.all(16),
+                              margin: EdgeInsets.zero,
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => const DailyGoalsScreen(),
+                                  ),
+                                );
+                              },
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Icon(Icons.flag,
+                                      color: AppColors.primary),
+                                  const SizedBox(width: 8),
+                                  Text(
+                                    'Daily Goals',
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColors.textPrimary,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
+                                .animate()
+                                .fadeIn(duration: 400.ms, delay: 1200.ms)
+                                .slideX(begin: -0.1),
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: GlassCard(
+                              padding: const EdgeInsets.all(16),
+                              margin: EdgeInsets.zero,
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => const ReviewScreen(),
+                                  ),
+                                );
+                              },
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Icon(Icons.refresh,
+                                      color: AppColors.accent),
+                                  const SizedBox(width: 8),
+                                  Text(
+                                    'Review',
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColors.textPrimary,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
+                                .animate()
+                                .fadeIn(duration: 400.ms, delay: 1300.ms)
                                 .slideX(begin: 0.1),
                           ),
                         ],
